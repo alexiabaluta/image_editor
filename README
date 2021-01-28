@@ -1,0 +1,53 @@
+# Copyright 2020 Alexia-Elena Baluta 311CA
+
+PROGRAMAREA CALCULATOARELOR
+Tema #3 Editor de imagini (Fisiere, Parsare de stringuri si Structuri)
+
+	Programul aplica o serie de transformari simple asupra unor imagini salvate
+	in formatele PGM si PPM. Programul porneste fara parametrii si va suporta
+	introducerea, cate una pe linie a unor comenzi.
+...............................................................................
+LOAD <fisier>
+	Incarca o imagine dintr-un fisier. Se parseaza datele in functie de
+	specificatiile formatului. Citirea datelor se face din format text si, daca
+	este cazul, se continua din format binar.
+
+...............................................................................
+SELECT ALL/<x1> <y1> <x2> <y2>
+	Restrange efectul comenzilor urmatoare. Submatricea aflata intre
+	coordonatele date e salvata ca o subimagine a imaginii date, folosindu-se
+	aceeasi structura de date. Totusi, nu este necesara copierea element cu
+	element a matricei orignale, ci este suficienta o copiere shallow.
+
+...............................................................................
+ROTATE
+	Se constata ca toate rotatiile se pot reduce la la un numar de rotatii de
+	90°. Pentru a roti o matrice cu 90°, este necesar sa i se calculeze
+	transpusa si sa i se inverseze liniile.
+	Pentru o selectie patratica, acest lucru se poate realiza direct pe
+	matricea originala, in schimb pentru a roti in intregime imagina va fi
+	necesar spatiu suplimentar.
+
+...............................................................................
+CROP
+	Se copiaza liniile selectiei peste liniile imaginii si se elibereaza
+	liniile ramase.
+	Pentru eliberarea corespunzatoare a memoriei va fi necesara utilizarea de
+	vectori ajutatori.
+
+...............................................................................
+GRAYSCALE/SEPIA
+	Aplica selectiei un filtru descris de o formula. Parcurgerea matricei se
+	face pe blocuri de culori.
+
+...............................................................................
+SAVE <nume_fisier> [ascii]
+	Salveaza imaginea curenta in fisierul dat. Daca apare parametrul ascii,
+	atunci imaginea se salveaza in format text. Altfel, se salveaza automat in
+	format binar.
+
+...............................................................................
+EXIT
+	Dezaloca resursele folosite si opreste executia programului.
+
+...............................................................................
